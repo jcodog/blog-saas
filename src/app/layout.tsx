@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
-import { Providers } from "./components/providers";
-
 import "@/styles/globals.css";
+import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
+import { JStackProvider } from "@/components/providers/jstack";
 
 export const metadata: Metadata = {
 	title: "JStack App",
@@ -18,10 +17,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="antialiased">
-				<Providers>
+				<JStackProvider>
 					{children}
 					<Toaster position="top-right" richColors />
-				</Providers>
+				</JStackProvider>
 			</body>
 		</html>
 	);

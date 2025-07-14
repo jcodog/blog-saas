@@ -9,7 +9,7 @@ import { HTTPException } from "hono/http-exception";
 import { PropsWithChildren, useState } from "react";
 import { toast } from "sonner";
 
-export const Providers = ({ children }: PropsWithChildren) => {
+export const JStackProvider = ({ children }: PropsWithChildren) => {
 	const [queryClient] = useState(
 		() =>
 			new QueryClient({
