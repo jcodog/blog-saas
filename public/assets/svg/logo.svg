@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Pen nib icon -->
+  <path d="M15 0 L25 20 L10 50 L0 50 L15 20 Z" fill="#FFFFFF"/>
+  <circle cx="15" cy="45" r="5" fill="#FFFFFF"/>
+
+  <!-- Text -->
+  <text x="40" y="40" font-family="Montserrat, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF">
+    BlogIt
+  </text>
+</svg>
