@@ -6,12 +6,20 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
+/**
+ * Serves as the root container for an alert dialog, providing context and state management for all nested dialog components.
+ */
 function AlertDialog({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />
 }
 
+/**
+ * Renders an element that triggers the opening of the alert dialog.
+ *
+ * Forwards all props to the underlying trigger primitive and adds a `data-slot` attribute for identification.
+ */
 function AlertDialogTrigger({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
@@ -20,6 +28,9 @@ function AlertDialogTrigger({
   )
 }
 
+/**
+ * Renders the alert dialog content in a React portal, enabling the dialog to appear outside the normal DOM hierarchy.
+ */
 function AlertDialogPortal({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {
@@ -28,6 +39,11 @@ function AlertDialogPortal({
   )
 }
 
+/**
+ * Renders a semi-transparent overlay behind the alert dialog, applying animation and styling based on the dialog's open or closed state.
+ *
+ * Additional class names can be merged via the `className` prop.
+ */
 function AlertDialogOverlay({
   className,
   ...props
@@ -44,6 +60,11 @@ function AlertDialogOverlay({
   )
 }
 
+/**
+ * Renders the alert dialog content inside a portal with overlay, applying positioning, animation, and styling for a centered modal.
+ *
+ * Combines the dialog content with an overlay and ensures proper transitions and appearance for the alert dialog.
+ */
 function AlertDialogContent({
   className,
   ...props
@@ -63,6 +84,11 @@ function AlertDialogContent({
   )
 }
 
+/**
+ * Renders the header section of an alert dialog with vertical layout and spacing.
+ *
+ * Applies flexbox styling for vertical alignment and centers text by default, with left alignment on small screens and above. Additional class names and props are merged and forwarded.
+ */
 function AlertDialogHeader({
   className,
   ...props
@@ -76,6 +102,11 @@ function AlertDialogHeader({
   )
 }
 
+/**
+ * Renders the footer section of an alert dialog with responsive layout and spacing.
+ *
+ * Applies a column-reverse layout on small screens and a row layout with right alignment on larger screens. Additional class names can be merged via the `className` prop.
+ */
 function AlertDialogFooter({
   className,
   ...props
@@ -92,6 +123,11 @@ function AlertDialogFooter({
   )
 }
 
+/**
+ * Renders the title text for the alert dialog with appropriate styling.
+ *
+ * Applies font and size styles, merges additional class names, and forwards all props to the underlying primitive.
+ */
 function AlertDialogTitle({
   className,
   ...props
@@ -105,6 +141,11 @@ function AlertDialogTitle({
   )
 }
 
+/**
+ * Renders the descriptive text for an alert dialog with muted styling.
+ *
+ * Use within an alert dialog to provide additional context or explanation below the title.
+ */
 function AlertDialogDescription({
   className,
   ...props
@@ -118,6 +159,11 @@ function AlertDialogDescription({
   )
 }
 
+/**
+ * Renders the primary action button for the alert dialog with consistent styling.
+ *
+ * Applies the default button variant styles and merges any additional class names provided.
+ */
 function AlertDialogAction({
   className,
   ...props
@@ -130,6 +176,11 @@ function AlertDialogAction({
   )
 }
 
+/**
+ * Renders a cancel button for the alert dialog with outline styling.
+ *
+ * Forwards all props to the underlying Radix UI Cancel primitive and merges additional class names.
+ */
 function AlertDialogCancel({
   className,
   ...props

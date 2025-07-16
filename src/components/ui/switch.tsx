@@ -5,6 +5,11 @@ import * as SwitchPrimitive from "@radix-ui/react-switch"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * A styled toggle switch component based on Radix UI, supporting custom class names and all native switch props.
+ *
+ * Renders a switch with animated thumb and state-dependent styling, suitable for use in forms and interactive UIs.
+ */
 function Switch({
   className,
   ...props

@@ -6,28 +6,51 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Root component for the Sheet dialog, providing the container for the sliding panel UI.
+ *
+ * Forwards all props to the underlying Radix Dialog Root and adds a `data-slot="sheet"` attribute for identification.
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }
 
+/**
+ * Renders a trigger element that opens the Sheet when activated.
+ *
+ * Forwards all props to the underlying trigger primitive and adds a `data-slot="sheet-trigger"` attribute for identification.
+ */
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
 }
 
+/**
+ * Renders a button or element that closes the sheet when activated.
+ *
+ * Forwards all props to the underlying Radix UI Close primitive and adds a `data-slot="sheet-close"` attribute for identification.
+ */
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
 }
 
+/**
+ * Renders the sheet content in a React portal, allowing it to be mounted outside the DOM hierarchy of the parent component.
+ *
+ * Forwards all props to the underlying portal and adds a `data-slot="sheet-portal"` attribute for identification.
+ */
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
 }
 
+/**
+ * Renders a semi-transparent overlay behind the sheet, covering the entire viewport and applying fade-in/out animations based on the sheet's open state.
+ */
 function SheetOverlay({
   className,
   ...props
@@ -44,6 +67,12 @@ function SheetOverlay({
   )
 }
 
+/**
+ * Renders the main content area of the sheet, sliding in from the specified side with animated transitions and a close button.
+ *
+ * @param side - The edge of the viewport from which the sheet appears. Defaults to "right".
+ * @returns The sheet content with overlay, slide-in/out animation, and a close button.
+ */
 function SheetContent({
   className,
   children,
@@ -81,6 +110,11 @@ function SheetContent({
   )
 }
 
+/**
+ * Renders the header section of a sheet with vertical layout and padding.
+ *
+ * Forwards all props to a `div` element and merges additional class names.
+ */
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -91,6 +125,11 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Renders the footer section of a sheet with consistent spacing and layout.
+ *
+ * Applies flex column layout, padding, and gap styling, and forwards all additional props to the underlying `div`.
+ */
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -101,6 +140,11 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Renders the title of the sheet with emphasized styling.
+ *
+ * Forwards all props to the underlying Radix UI title primitive and adds a `data-slot="sheet-title"` attribute.
+ */
 function SheetTitle({
   className,
   ...props
@@ -114,6 +158,11 @@ function SheetTitle({
   )
 }
 
+/**
+ * Renders a styled description text for the sheet, typically used to provide additional context or instructions.
+ *
+ * Applies muted foreground color and small font size, and forwards all props to the underlying primitive.
+ */
 function SheetDescription({
   className,
   ...props

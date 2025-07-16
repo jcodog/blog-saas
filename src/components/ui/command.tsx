@@ -21,6 +21,11 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 
+/**
+ * Renders a styled command palette container based on the `cmdk` Command primitive.
+ *
+ * Applies consistent layout, background, and text styles for use as the root of a command interface.
+ */
 function Command({
   className,
   ...props
@@ -37,6 +42,15 @@ function Command({
   );
 }
 
+/**
+ * Displays a command palette inside a dialog window with accessible title and description.
+ *
+ * Renders a modal dialog containing the command palette UI, including a visually hidden header for accessibility and customizable content. Supports optional title, description, custom class names, and a toggle for the close button.
+ *
+ * @param title - The accessible title for the dialog (screen reader only).
+ * @param description - The accessible description for the dialog (screen reader only).
+ * @param showCloseButton - Whether to display the close button in the dialog.
+ */
 function CommandDialog({
   title = "Command Palette",
   description = "Search for a command to run...",
@@ -68,6 +82,16 @@ function CommandDialog({
   );
 }
 
+/**
+ * Renders a responsive command palette that displays as a drawer on mobile devices and as a dialog on larger screens.
+ *
+ * The component includes accessible headers for screen readers and applies consistent styling to the command palette content. It accepts optional title, description, custom class names, a toggle for the close button, and a flag to enable or disable filtering.
+ *
+ * @param title - The accessible title for the command palette.
+ * @param description - The accessible description for the command palette.
+ * @param showCloseButton - Whether to display a close button in the dialog (non-mobile only).
+ * @param shouldFilter - Whether to enable filtering of command items.
+ */
 function CommandResponsiveDialog({
   title = "Command Palette",
   description = "Search for a command to run...",
@@ -124,6 +148,11 @@ function CommandResponsiveDialog({
   );
 }
 
+/**
+ * Renders a styled command palette input field with a search icon.
+ *
+ * Displays a search icon alongside the input, applying consistent styling for use within a command palette interface.
+ */
 function CommandInput({
   className,
   ...props
@@ -146,6 +175,11 @@ function CommandInput({
   );
 }
 
+/**
+ * Renders a scrollable list container for command items with consistent styling.
+ *
+ * Applies maximum height, vertical scrolling, and padding to display command results within a command palette.
+ */
 function CommandList({
   className,
   ...props
@@ -162,6 +196,9 @@ function CommandList({
   );
 }
 
+/**
+ * Displays a styled message when no command results are found in the command palette.
+ */
 function CommandEmpty({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
@@ -174,6 +211,11 @@ function CommandEmpty({
   );
 }
 
+/**
+ * Renders a styled group section within a command palette, including group heading and grouped items.
+ *
+ * Applies consistent spacing, typography, and color to group headings and content.
+ */
 function CommandGroup({
   className,
   ...props
@@ -190,6 +232,9 @@ function CommandGroup({
   );
 }
 
+/**
+ * Renders a styled separator line for visually dividing sections within a command palette.
+ */
 function CommandSeparator({
   className,
   ...props
@@ -203,6 +248,11 @@ function CommandSeparator({
   );
 }
 
+/**
+ * Renders a selectable command menu item with consistent styling and support for icons.
+ *
+ * Applies visual styles for selected and disabled states, and ensures icons are properly sized and aligned.
+ */
 function CommandItem({
   className,
   ...props
@@ -219,6 +269,11 @@ function CommandItem({
   );
 }
 
+/**
+ * Renders a styled span for displaying keyboard shortcuts within a command item.
+ *
+ * The shortcut is right-aligned and uses muted text styling for visual distinction.
+ */
 function CommandShortcut({
   className,
   ...props

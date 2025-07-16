@@ -5,6 +5,13 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Provides a styled navigation menu root component with optional viewport support.
+ *
+ * Renders a navigation menu container that wraps its children and, if enabled, includes a viewport for dropdown content positioning and animation.
+ *
+ * @param viewport - If true, renders the navigation menu viewport for dropdown content. Defaults to true.
+ */
 function NavigationMenu({
   className,
   children,
@@ -29,6 +36,11 @@ function NavigationMenu({
   )
 }
 
+/**
+ * Renders a styled list container for navigation menu items.
+ *
+ * Wraps the Radix NavigationMenuPrimitive.List with flexbox layout and spacing for horizontal navigation menus.
+ */
 function NavigationMenuList({
   className,
   ...props
@@ -45,6 +57,11 @@ function NavigationMenuList({
   )
 }
 
+/**
+ * Renders a styled navigation menu item for use within a navigation menu list.
+ *
+ * Applies relative positioning and allows additional class names and props to be passed for customization.
+ */
 function NavigationMenuItem({
   className,
   ...props
@@ -62,6 +79,11 @@ const navigationMenuTriggerStyle = cva(
   "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
 )
 
+/**
+ * Renders a styled navigation menu trigger button with an animated chevron icon indicating open state.
+ *
+ * Displays its children and a chevron icon that rotates when the menu is open.
+ */
 function NavigationMenuTrigger({
   className,
   children,
@@ -82,6 +104,11 @@ function NavigationMenuTrigger({
   )
 }
 
+/**
+ * Renders the dropdown content for a navigation menu item with animated transitions and responsive positioning.
+ *
+ * Applies conditional styling and animation based on menu state and viewport presence.
+ */
 function NavigationMenuContent({
   className,
   ...props
@@ -99,6 +126,11 @@ function NavigationMenuContent({
   )
 }
 
+/**
+ * Renders the navigation menu viewport with positioning and animation styles.
+ *
+ * Wraps the Radix NavigationMenuPrimitive.Viewport in a container for absolute positioning and centers it below the menu. Applies animation, sizing, and overflow styles for dropdown content.
+ */
 function NavigationMenuViewport({
   className,
   ...props
@@ -121,6 +153,11 @@ function NavigationMenuViewport({
   )
 }
 
+/**
+ * Renders a styled navigation menu link with interactive states for active, hover, and focus.
+ *
+ * Applies accent background and foreground colors on active, hover, and focus states, and styles child SVG icons for consistent appearance.
+ */
 function NavigationMenuLink({
   className,
   ...props
@@ -137,6 +174,11 @@ function NavigationMenuLink({
   )
 }
 
+/**
+ * Renders a visual indicator below a navigation menu item to highlight the active or open state.
+ *
+ * Displays an animated arrow that appears when the menu item is active, using state-based transitions for visibility.
+ */
 function NavigationMenuIndicator({
   className,
   ...props

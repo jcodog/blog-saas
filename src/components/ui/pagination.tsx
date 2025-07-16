@@ -8,6 +8,9 @@ import {
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
 
+/**
+ * Renders a navigation container for pagination controls with appropriate ARIA roles and customizable styling.
+ */
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
@@ -20,6 +23,11 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   )
 }
 
+/**
+ * Renders a flex row `<ul>` container for pagination items with customizable styling.
+ *
+ * Use this component to group pagination elements within a pagination navigation.
+ */
 function PaginationContent({
   className,
   ...props
@@ -33,6 +41,11 @@ function PaginationContent({
   )
 }
 
+/**
+ * Renders a list item for use within a pagination component.
+ *
+ * Passes all received props to the underlying `<li>` element and adds a data attribute for slot identification.
+ */
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
   return <li data-slot="pagination-item" {...props} />
 }
@@ -42,6 +55,15 @@ type PaginationLinkProps = {
 } & Pick<React.ComponentProps<typeof Button>, "size"> &
   React.ComponentProps<"a">
 
+/**
+ * Renders a styled anchor element for a pagination link, supporting active state and size variants.
+ *
+ * Applies appropriate ARIA attributes and visual styles based on the active state. Intended for use within pagination controls.
+ *
+ * @param isActive - Whether the link represents the current page
+ * @param size - The size variant for the button styling (defaults to "icon")
+ * @returns The pagination link as an anchor element
+ */
 function PaginationLink({
   className,
   isActive,
@@ -65,6 +87,11 @@ function PaginationLink({
   )
 }
 
+/**
+ * Renders a pagination control for navigating to the previous page.
+ *
+ * Displays a left-pointing chevron icon and a "Previous" label (visible on larger screens), with appropriate ARIA labeling for accessibility.
+ */
 function PaginationPrevious({
   className,
   ...props
@@ -82,6 +109,11 @@ function PaginationPrevious({
   )
 }
 
+/**
+ * Renders a pagination control for navigating to the next page.
+ *
+ * Displays a "Next" label (visible on larger screens) and a right-pointing chevron icon. Inherits all props from `PaginationLink`.
+ */
 function PaginationNext({
   className,
   ...props
@@ -99,6 +131,11 @@ function PaginationNext({
   )
 }
 
+/**
+ * Renders an ellipsis indicator for truncated pagination ranges.
+ *
+ * Displays a horizontal ellipsis icon with screen-reader-only text for accessibility.
+ */
 function PaginationEllipsis({
   className,
   ...props

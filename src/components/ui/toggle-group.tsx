@@ -14,6 +14,11 @@ const ToggleGroupContext = React.createContext<
   variant: "default",
 })
 
+/**
+ * Renders a group of toggle buttons with shared variant and size styling, providing context to descendant toggle items.
+ *
+ * Wraps the Radix UI ToggleGroup primitive and applies styling, variant, and size props, exposing these values to child components via React context.
+ */
 function ToggleGroup({
   className,
   variant,
@@ -40,6 +45,11 @@ function ToggleGroup({
   )
 }
 
+/**
+ * Renders a toggle group item with styling and behavior based on variant and size, inheriting values from context if available.
+ *
+ * Displays its children as the content of the toggle item. Applies appropriate CSS classes and data attributes for styling and state management.
+ */
 function ToggleGroupItem({
   className,
   children,
