@@ -5,6 +5,11 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders a customizable slider component supporting single or range selection.
+ *
+ * Accepts all props from the underlying Radix UI Slider primitive, with additional styling and support for both controlled and uncontrolled usage. Renders one or more thumbs based on the provided `value` or `defaultValue` arrays, and supports both horizontal and vertical orientations.
+ */
 function Slider({
   className,
   defaultValue,

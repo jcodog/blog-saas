@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+/**
+ * Defines the root layout for the application, applying global providers, theming, and notification support.
+ *
+ * Wraps all pages with `JStackProvider` for app-wide context, `ThemeProvider` for system-based theming, and includes a `Toaster` for notifications.
+ *
+ * @param children - The React nodes representing the page content to be rendered within the layout
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

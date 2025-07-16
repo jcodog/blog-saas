@@ -1,6 +1,13 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+/**
+ * Combines multiple class values into a single string, merging Tailwind CSS classes intelligently.
+ *
+ * Accepts any number of class values, flattens and deduplicates them, and resolves Tailwind CSS class conflicts.
+ *
+ * @returns The merged class string.
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -14,9 +21,10 @@ export const generateSixDidgetCode = () =>
   Math.floor(100000 + Math.random() * 900000);
 
 /**
- * Delete a cookie by name in the browser.
- * @param name Cookie name
- * @param options Optional path/domain to match how it was set
+ * Deletes a browser cookie by name, optionally specifying path and domain to match the original cookie scope.
+ *
+ * @param name - The name of the cookie to delete
+ * @param options - Optional object specifying the path and domain for the cookie
  */
 export function deleteCookie(
   name: string,
@@ -35,9 +43,10 @@ export function deleteCookie(
 }
 
 /**
- * Clear session cookie client-side and notify server to destroy the session.
- * @param cookieName Name of the session cookie (e.g. "mySessionCookie")
- * @param logoutUrl Server endpoint to call (e.g. "/api/logout")
+ * Deletes a session cookie in the browser and sends a POST request to a server logout endpoint to terminate the session.
+ *
+ * @param cookieName - The name of the session cookie to delete
+ * @param logoutUrl - The server endpoint to notify for session termination (defaults to "/api/logout")
  */
 export async function clearSession(
   cookieName: string,
@@ -61,6 +70,14 @@ export async function clearSession(
   }
 }
 
+/**
+ * Formats a 10-digit phone number string into the pattern `(XXX) XXX-XXXX`.
+ *
+ * If the input does not contain exactly 10 digits after removing non-numeric characters, returns the original input string.
+ *
+ * @param phone - The phone number string to format
+ * @returns The formatted phone number, or the original input if not exactly 10 digits
+ */
 export function formatPhoneNumber(phone: string): string {
   const cleaned = phone.replace(/\D/g, ""); // Remove non-digits
 
@@ -73,6 +90,12 @@ export function formatPhoneNumber(phone: string): string {
   return `(${area}) ${middle}-${last}`;
 }
 
+/**
+ * Cleans a phone number string by removing all non-numeric characters and returns the result if it contains exactly 10 digits.
+ *
+ * @param input - The phone number string to clean and validate
+ * @returns The cleaned 10-digit phone number string, or null if the result does not have exactly 10 digits
+ */
 export function cleanAndValidatePhoneNumber(input: string): string | null {
   const cleaned = input.replace(/\D/g, ""); // Remove all non-numeric characters
 
@@ -80,6 +103,11 @@ export function cleanAndValidatePhoneNumber(input: string): string | null {
 }
 
 
+/**
+ * Returns the full current URL including origin, path, query, and hash if running in a browser environment.
+ *
+ * @returns The current URL as a string, or an empty string if not in a browser context.
+ */
 export function getCurrentUrl(): string {
   if (typeof window === "undefined") {
     return "";

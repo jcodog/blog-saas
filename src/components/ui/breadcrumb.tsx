@@ -4,10 +4,20 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders a navigation region for breadcrumb links with appropriate accessibility attributes.
+ *
+ * Accepts all native `<nav>` element props.
+ */
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />
 }
 
+/**
+ * Renders an ordered list for breadcrumb items with appropriate styling and accessibility attributes.
+ *
+ * Accepts all native `<ol>` props and merges additional class names for layout and appearance.
+ */
 function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   return (
     <ol
@@ -21,6 +31,11 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   )
 }
 
+/**
+ * Renders a breadcrumb list item with inline-flex styling and spacing.
+ *
+ * Accepts all native `<li>` element props and merges additional class names.
+ */
 function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
@@ -31,6 +46,14 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   )
 }
 
+/**
+ * Renders a breadcrumb link as either an anchor element or a custom component, supporting flexible composition and styling.
+ *
+ * If `asChild` is true, renders a Radix UI `Slot` component instead of an anchor tag.
+ *
+ * @param asChild - If true, renders a custom component instead of an anchor element
+ * @returns The rendered breadcrumb link element
+ */
 function BreadcrumbLink({
   asChild,
   className,
@@ -49,6 +72,11 @@ function BreadcrumbLink({
   )
 }
 
+/**
+ * Renders the current page indicator in a breadcrumb navigation.
+ *
+ * Displays a non-interactive element with appropriate ARIA attributes to indicate the active page for assistive technologies.
+ */
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -62,6 +90,11 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
+/**
+ * Renders a decorative separator between breadcrumb items, defaulting to a right-chevron icon if no children are provided.
+ *
+ * The separator is marked as presentation-only and hidden from assistive technologies.
+ */
 function BreadcrumbSeparator({
   children,
   className,
@@ -80,6 +113,11 @@ function BreadcrumbSeparator({
   )
 }
 
+/**
+ * Renders an ellipsis with an icon and a screen-reader label for collapsed breadcrumb items.
+ *
+ * Used to indicate truncated breadcrumb items, with appropriate ARIA attributes to mark it as decorative and hidden from assistive technologies.
+ */
 function BreadcrumbEllipsis({
   className,
   ...props

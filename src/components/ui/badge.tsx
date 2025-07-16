@@ -25,6 +25,11 @@ const badgeVariants = cva(
   }
 );
 
+/**
+ * Renders a styled badge element with customizable visual variants.
+ *
+ * Supports rendering as a different element when `asChild` is true. Applies variant-based and additional custom class names.
+ */
 function Badge({
   className,
   variant,
